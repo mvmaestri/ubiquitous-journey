@@ -116,7 +116,7 @@ rbac:
 # proxy relates to the proxy pod, the proxy-public service, and the autohttps
 # pod and proxy-http service.
 proxy:
-  secretToken: ''
+  secretToken: '2a5ff7d5f32c4b4d5c1b4524ebe0c7431b773e6b4cfac7022992ae4f565091f6'
   deploymentStrategy:
     ## type: Recreate
     ## - JupyterHub's interaction with the CHP proxy becomes a lot more robust
