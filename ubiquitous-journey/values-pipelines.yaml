@@ -18,8 +18,7 @@ sync_policy_no_selfheal: &sync_policy_no_selfheal
       validate: true
 
 applications:
-  # tekton nodejs demo pipeline using a strict implementation of gitflow on github
-  - name: tekton-github-nodejs
+  - name: tekton-treo
     enabled: true
     source: https://github.com/mvmaestri/helm-charts.git
     source_path: charts/tekton-demo
@@ -29,25 +28,25 @@ applications:
     values:
       cluster: apps.s45.core.rht-labs.com
       application:
-        name: do101 # https://www.redhat.com/en/services/training/do101-introduction-openshift-applications
+        name: treo
         runtime: nodejs:10
         environments:
           cicd: labs-ci-cd
-          development: do101-development
-          production: do101-production
+          development: treo-development
+          production: treo-production
       pipeline:
         sa:
           default: pipeline
-          triggers: tekton-triggers-sa
+          triggers: treo-tekton-triggers-sa
         nexus:
           host: https://nexus-labs-ci-cd.apps.s45.core.rht-labs.com/repository/labs-npm
         build:
           s2i:
-            context: weather
+            context: .
         webhook:
           github: 
             org: mvmaestri
             user: mvmaestri
-            repo: do101-apps # https://github.com/mvmaestri/do101-apps
+            repo: treo
             secret: github-webhook-secret
             key: github-deploy-secret
