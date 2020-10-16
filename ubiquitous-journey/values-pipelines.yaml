@@ -48,5 +48,5 @@ applications:
             org: mvmaestri
             user: mvmaestri
             repo: treo
-            secret: github-webhook-secret
-            key: github-deploy-secret
+            secret: treo-github-webhook-secret
+            key: treo-github-deploy-secret
